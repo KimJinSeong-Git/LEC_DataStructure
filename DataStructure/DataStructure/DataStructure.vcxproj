@@ -139,7 +139,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="HW1_linkedList.c" />
+    <ClCompile Include="LinkedList.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="C:\Users\Byeo\Desktop\수업자료\데이타구조론\HW1\student.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
