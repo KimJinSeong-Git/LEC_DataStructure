@@ -80,12 +80,12 @@ int main() {
 
 			int newID = atoi(strtok_s(NULL, " ", &cmdContext));
 			char* newName = strtok_s(NULL, " ", &cmdContext);
-			listData newItem;
 
+			listData newItem;
 			newItem.id = newID;
 			strcpy_s(newItem.name, sizeof(newItem.name), newName);
 
-			int insert(student, searchedNode, newItem);
+			insert(student, searchedNode, newItem);
 		}
 
 		// ---------- Delete ----------
@@ -161,26 +161,6 @@ int getLength(linkedList* L) {
 	return L->length;
 }
 
-void insertLast(linkedList* L, listData item) {
-	// 새로운 노드 생성
-	listNode *newNode, *temp;
-	newNode = (listNode*)malloc(sizeof(listNode));
-	newNode->data = item;
-	newNode->link = NULL;
-
-	// 공백리스트이면 바로 삽입
-	if (L->head == NULL) 
-		L->head = newNode;
-
-	// 아니라면 마지막 노드 탐색 후 삽입
-	else {
-		temp = L->head;					// 첫 번째 노드의 주소 입력
-		while (temp->link != NULL)		// 마지막 노드가 아니면 계속 탐색
-			temp = temp->link;			// 다음 노드의 주소 입력
-		temp->link = newNode;			// 마지막 노드 뒤에 새 노드 연결
-	}
-}
-
 void printList(linkedList* L) {
 	listNode* p;
 	printf("[ System ] Print List\n");
@@ -214,4 +194,37 @@ listNode* search(linkedList* L, int x) {
 	printf("\n============================================\n\n");
 
 	return searched;
+}
+
+void insertLast(linkedList* L, listData item) {
+	// 새로운 노드 생성
+	listNode* newNode, * temp;
+	newNode = (listNode*)malloc(sizeof(listNode));
+	newNode->data = item;
+	newNode->link = NULL;
+
+	// 공백리스트이면 바로 삽입
+	if (L->head == NULL)
+		L->head = newNode;
+
+	// 아니라면 마지막 노드 탐색 후 삽입
+	else {
+		temp = L->head;					// 첫 번째 노드의 주소 입력
+		while (temp->link != NULL)		// 마지막 노드가 아니면 계속 탐색
+			temp = temp->link;			// 다음 노드의 주소 입력
+		temp->link = newNode;			// 마지막 노드 뒤에 새 노드 연결
+	}
+}
+
+int insert(linkedList* L, listNode* pre, listData item) {
+	listNode* newNode;
+	newNode = (listNode*)malloc(sizeof(listNode));
+	newNode->data = item;
+	newNode->link = NULL;
+
+	if (L->head == NULL)
+		L->head = newNode;
+	else if (pre == NULL) {
+
+	}
 }
