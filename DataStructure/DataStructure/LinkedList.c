@@ -50,7 +50,8 @@ int main() {
 
 	// 파일 읽어오기
 	FILE* fp;
-	fopen_s(&fp, "F:/github/LEC_DataStructure/resource/HW1/student.txt", "r");
+	char *fileRoot = "D:/Private/GitHub/LEC_DataStructure/resource/HW1/student.txt";
+	fopen_s(&fp, fileRoot, "r");
 	
 	// 라인 별, 단어 별 구분하기
 	int cntLine = 1;
