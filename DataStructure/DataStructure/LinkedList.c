@@ -48,21 +48,21 @@ int main() {
 	linkedList* student = initList();
 	listData tempData;
 
-	// 파일 읽어오기
+	// ---------- 파일 읽어오기 ----------
 	FILE* fp;
 	char *fileRoot = "D:/Private/GitHub/LEC_DataStructure/resource/HW1/student.txt";
 	fopen_s(&fp, fileRoot, "r");
 	
 	// 라인 별, 단어 별 구분하기
 	int cntLine = 1;
-	char buffer[30];
+	char fileBuffer[30];
 	char* context = NULL;
 
 	while (!feof(fp)) {
-		fgets(buffer, sizeof(buffer), fp);				// 한 라인 buffer로 읽어오기
+		fgets(fileBuffer, sizeof(fileBuffer), fp);				// 한 라인 buffer로 읽어오기
 		printf("[Input] line %d\n", cntLine++);
 
-		char* word = strtok_s(buffer, " ", &context);	// 공백을 기준으로 Tokenize
+		char* word = strtok_s(fileBuffer, " ", &context);	// 공백을 기준으로 Tokenize
 
 		int cntWord = 1;
 		while (word != NULL) {
@@ -85,7 +85,30 @@ int main() {
 	}
 	fclose(fp);
 
-	printList(student);
+	// ---------- 터미널 입력 ----------
+	int power = 1;
+	while (power) {
+		char terminalBuffer[100];
+		gets_s(terminalBuffer, sizeof(terminalBuffer));
+
+		char* command = strtok_s(terminalBuffer, " ", &context);
+		if (strcmp(command, "print") == 0)
+			printList(student);
+		else if (strcmp(command, "search") == 0)
+			printf("search");
+		else if (strcmp(command, "insert") == 0)
+			printf("insert");
+		else if (strcmp(command, "delete") == 0)
+			printf("delete");
+		else if (strcmp(command, "reverse") == 0)
+			printf("reverse");
+		else if (strcmp(command, "getLength") == 0)
+			printf("getLength");
+		else if (strcmp(command, "exit") == 0) {
+			printf("exit");
+			power = 0;
+		}
+	}
 
 
 	return 0;
