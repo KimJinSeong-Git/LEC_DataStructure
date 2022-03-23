@@ -91,26 +91,40 @@ int main() {
 		char terminalBuffer[100];
 		gets_s(terminalBuffer, sizeof(terminalBuffer));
 
-		char* command = strtok_s(terminalBuffer, " ", &context);
-		if (strcmp(command, "print") == 0)
+		char* command = strtok_s(terminalBuffer, " ", &context);	// 토큰화 - 명령어 인식
+
+		// ---------- Print ----------
+		if (strcmp(command, "[System] Print\n") == 0)
 			printList(student);
+
+		// ---------- Search ----------
 		else if (strcmp(command, "search") == 0)
-			printf("search");
+			printf("[System] Search\n");
+
+		// ---------- Insert ----------
 		else if (strcmp(command, "insert") == 0)
-			printf("insert");
+			printf("[System] Insert\n");
+
+		// ---------- Delete ----------
 		else if (strcmp(command, "delete") == 0)
-			printf("delete");
+			printf("[System] Delete\n");
+
+		// ---------- Reverse ----------
 		else if (strcmp(command, "reverse") == 0)
-			printf("reverse");
+			printf("[System] Reverse\n");
+
+		// ---------- GetLength ----------
 		else if (strcmp(command, "getLength") == 0)
-			printf("getLength");
+			printf("[System] GetLength\n");
+
+		// ---------- Exit ----------
 		else if (strcmp(command, "exit") == 0) {
-			printf("exit");
+			printf("[System] Exit Program\n");
 			power = 0;
 		}
+		else
+			printf("[System] ERROR! Wrong Command. Please retype.\n");
 	}
-
-
 	return 0;
 }
 
