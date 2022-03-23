@@ -50,7 +50,7 @@ int main() {
 
 	// ---------- 파일 읽어오기 ----------
 	FILE* fp;
-	char *fileRoot = "D:/Private/GitHub/LEC_DataStructure/resource/HW1/student.txt";
+	char *fileRoot = "C:/Users/YONSEI-IT/Desktop/김진성_근로학생/github/LEC_DataStructure/resource/HW1/student.txt";
 	fopen_s(&fp, fileRoot, "r");
 	
 	// 라인 별, 단어 별 구분하기
@@ -91,15 +91,25 @@ int main() {
 		char terminalBuffer[100];
 		gets_s(terminalBuffer, sizeof(terminalBuffer));
 
-		char* command = strtok_s(terminalBuffer, " ", &context);	// 토큰화 - 명령어 인식
+		char* cmdContext = NULL;
+		char* command = strtok_s(terminalBuffer, " ", &cmdContext);	// 토큰화 - 명령어 인식
 
 		// ---------- Print ----------
 		if (strcmp(command, "print") == 0)
 			printList(student);
 
 		// ---------- Search ----------
-		else if (strcmp(command, "search") == 0)
+		else if (strcmp(command, "search") == 0) {
 			printf("[System] Search\n");
+
+			int nbSearchID = atoi(strtok_s(NULL, " ", &cmdContext));	// 다음 인자 토큰화 진행
+			listNode* searched = search(student, nbSearchID);			// 해당 ID 탐색
+
+			if (searched != NULL)
+				printf("- 학번이 %d인 학생의 이름: %s\n\n", nbSearchID, searched->data.name);
+			else		// 마지막 링크( NULL )에 도달 즉, 조건에 맞는 노드가 없음
+				printf("- 학번이 %d인 학생이 없습니다.\n\n", nbSearchID);
+		}
 
 		// ---------- Insert ----------
 		else if (strcmp(command, "insert") == 0)
@@ -173,4 +183,16 @@ void printList(linkedList* L) {
 			printf("\n");
 	}
 	printf(")\n");
+}
+
+listNode* search(linkedList* L, int x) {
+	listNode* temp;
+	temp = L->head;				// 첫 번째 항목의 주소
+	while (temp != NULL) {		// 공백 리스트가 아니면 반복
+		if (temp->data.id == x)
+			return temp;		// 탐색 데이터가 같다면 해당 노드 반환
+		else
+			temp = temp->link;	// 같지 않다면 다음 노드 탐색
+	}
+	return temp;
 }
