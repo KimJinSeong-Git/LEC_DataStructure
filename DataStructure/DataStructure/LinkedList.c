@@ -60,7 +60,7 @@ int main() {
 		gets_s(terminalBuffer, sizeof(terminalBuffer));
 
 		char* cmdContext = NULL;
-		char* command = strtok_s(terminalBuffer, " ", &cmdContext);	// 토큰화 - 명령어 인식
+		char* command = strtok_s(terminalBuffer, " ", &cmdContext);		// 토큰화 - 명령어 인식
 
 		// ---------- Print ----------
 		if (strcmp(command, "print") == 0)
@@ -68,13 +68,25 @@ int main() {
 
 		// ---------- Search ----------
 		else if (strcmp(command, "search") == 0) {
-			int nbSearchID = atoi(strtok_s(NULL, " ", &cmdContext));	// 다음 인자 토큰화 진행
+			int nbSearchID = atoi(strtok_s(NULL, " ", &cmdContext));		// 다음 인자 토큰화 진행
 			search(student, nbSearchID);								// 해당 ID 탐색
 		}
 
 		// ---------- Insert ----------
-		else if (strcmp(command, "insert") == 0)
+		else if (strcmp(command, "insert") == 0) {
 			printf("[System] Insert\n");
+			int nbSearchID = atoi(strtok_s(NULL, " ", &cmdContext));		// 다음 인자 토큰화 진행
+			listNode* searchedNode = search(student, nbSearchID);
+
+			int newID = atoi(strtok_s(NULL, " ", &cmdContext));
+			char* newName = strtok_s(NULL, " ", &cmdContext);
+			listData newItem;
+
+			newItem.id = newID;
+			strcpy_s(newItem.name, sizeof(newItem.name), newName);
+
+			int insert(student, searchedNode, newItem);
+		}
 
 		// ---------- Delete ----------
 		else if (strcmp(command, "delete") == 0)
