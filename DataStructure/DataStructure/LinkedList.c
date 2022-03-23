@@ -94,7 +94,7 @@ int main() {
 		char* command = strtok_s(terminalBuffer, " ", &context);	// 토큰화 - 명령어 인식
 
 		// ---------- Print ----------
-		if (strcmp(command, "[System] Print\n") == 0)
+		if (strcmp(command, "print") == 0)
 			printList(student);
 
 		// ---------- Search ----------
