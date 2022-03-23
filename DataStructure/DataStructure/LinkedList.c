@@ -68,7 +68,6 @@ int main() {
 
 		// ---------- Search ----------
 		else if (strcmp(command, "search") == 0) {
-			printf("[System] Search\n");
 			int nbSearchID = atoi(strtok_s(NULL, " ", &cmdContext));	// 다음 인자 토큰화 진행
 			search(student, nbSearchID);								// 해당 ID 탐색
 		}
@@ -185,6 +184,8 @@ void printList(linkedList* L) {
 }
 
 listNode* search(linkedList* L, int x) {
+	printf("[System] Search\n");
+
 	listNode* searched;
 	searched = L->head;				// 첫 번째 항목의 주소
 	while (searched != NULL) {		// 공백 리스트가 아니면 반복
