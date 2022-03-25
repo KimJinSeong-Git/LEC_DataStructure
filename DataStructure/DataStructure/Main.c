@@ -62,7 +62,7 @@ int main() {
 		}
 		// ---------- Reverse ----------
 		else if (strcmp(command, "reverse") == 0) {
-			printf("[System] Reverse\n");
+			reverse(student);
 			printf("\n\n============================================\n\n");
 		}
 

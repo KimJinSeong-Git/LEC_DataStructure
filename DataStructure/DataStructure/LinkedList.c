@@ -127,3 +127,17 @@ int insert(linkedList* L, listNode* pre, listData item) {
 	printList(L);
 	return 1;
 }
+
+void reverse(linkedList* L) {
+	printf("[System] Reverse\n");
+	listNode *cur, *pre, *next;
+	cur = L->head;
+	pre = NULL;
+	while (cur != NULL) {
+		next = cur->link;
+		cur->link = pre;
+		pre = cur;
+		cur = next;
+	}
+	L->head = pre;
+}
