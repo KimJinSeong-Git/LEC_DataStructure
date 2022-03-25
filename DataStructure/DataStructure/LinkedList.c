@@ -67,7 +67,7 @@ void printList(linkedList* L) {
 }
 
 listNode* search(linkedList* L, int x) {
-	printf("[System] Search Start: %d\n", x);
+	printf("[System] Search: %d\n", x);
 
 	listNode* searched;
 	searched = L->head;				// 첫 번째 항목의 주소
