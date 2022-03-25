@@ -141,7 +141,7 @@ void reverse(linkedList* L) {
 		cur = next;
 	}
 	L->head = pre;
-	printf("[System] Reverse Complete.\n");
+	printf("[System] Reverse Complete.\n\n");
 	printList(L);
 }
 
