@@ -28,8 +28,10 @@ int main() {
 		char* command = strtok_s(terminalBuffer, " ", &cmdContext);		// 토큰화 - 명령어 인식
 
 		// ---------- Print ----------
-		if (strcmp(command, "print") == 0)
+		if (strcmp(command, "print") == 0) {
 			printList(student);
+			printf("\n\n============================================\n\n");
+		}
 
 		// ---------- Search ----------
 		else if (strcmp(command, "search") == 0) {
@@ -50,24 +52,30 @@ int main() {
 			strcpy_s(newItem.name, sizeof(newItem.name), newName);
 
 			insert(student, searchedNode, newItem);
+			printf("\n\n============================================\n\n");
 		}
 
 		// ---------- Delete ----------
-		else if (strcmp(command, "delete") == 0)
+		else if (strcmp(command, "delete") == 0) {
 			printf("[System] Delete\n");
-
+			printf("\n\n============================================\n\n");
+		}
 		// ---------- Reverse ----------
-		else if (strcmp(command, "reverse") == 0)
+		else if (strcmp(command, "reverse") == 0) {
 			printf("[System] Reverse\n");
+			printf("\n\n============================================\n\n");
+		}
 
 		// ---------- GetLength ----------
 		else if (strcmp(command, "getLength") == 0) {
 			getLength(student);
+			printf("\n\n============================================\n\n");
 		}
 		// ---------- Exit ----------
 		else if (strcmp(command, "exit") == 0) {
 			printf("[System] Exit Program\n");
 			power = 0;
+			printf("\n\n============================================\n\n");
 		}
 		else {
 			printf("[System] ERROR! Wrong Command. Please retype.\n");

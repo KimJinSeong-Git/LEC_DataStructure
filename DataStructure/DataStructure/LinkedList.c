@@ -48,7 +48,6 @@ linkedList* initList() {
 int getLength(linkedList* L) {
 	printf("[System] Get Length \n");
 	printf("- Length: %d", L->length);
-	printf("\n\n============================================\n\n");
 
 	return L->length;
 }
@@ -64,7 +63,6 @@ void printList(linkedList* L) {
 		if (p != NULL)
 			printf("\n");
 	}
-	printf("\n\n============================================\n\n");
 }
 
 listNode* search(linkedList* L, int x) {
@@ -83,7 +81,6 @@ listNode* search(linkedList* L, int x) {
 		printf("- 학번이 %d인 학생의 이름: %s\n", x, searched->data.name);
 	else		// 마지막 링크( NULL )에 도달 즉, 조건에 맞는 노드가 없음
 		printf("- 학번이 %d인 학생이 없습니다.\n", x);
-	printf("\n============================================\n\n");
 
 	return searched;
 }
@@ -109,7 +106,7 @@ void insertLast(linkedList* L, listData item) {
 }
 
 int insert(linkedList* L, listNode* pre, listData item) {
-	printf("[System] Insert\n");
+	printf("[System] Insert Start.\n");
 	listNode* newNode;
 	newNode = (listNode*)malloc(sizeof(listNode));
 	newNode->data = item;
@@ -118,7 +115,15 @@ int insert(linkedList* L, listNode* pre, listData item) {
 	if (L->head == NULL)
 		L->head = newNode;
 	else if (pre == NULL) {
-
+		printf("[System] Insert Fali.");
+		return 0;
 	}
-	printf("\n\n============================================\n\n");
+	else {
+		newNode->link = pre->link;
+		pre->link = newNode;
+	}
+	L->length++;
+	printf("[System] Insert Complete.");
+	printList(L);
+	return 1;
 }
