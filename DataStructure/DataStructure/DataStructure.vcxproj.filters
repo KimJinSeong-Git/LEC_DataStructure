@@ -18,10 +18,10 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="LinkedList.c">
+    <ClCompile Include="Main.c">
       <Filter>소스 파일\HW1_LinkedList</Filter>
     </ClCompile>
-    <ClCompile Include="list.c">
+    <ClCompile Include="linkedList.c">
       <Filter>소스 파일\HW1_LinkedList</Filter>
     </ClCompile>
   </ItemGroup>
@@ -31,7 +31,7 @@
     </Text>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="list.h">
+    <ClInclude Include="linkedList.h">
       <Filter>소스 파일\HW1_LinkedList</Filter>
     </ClInclude>
   </ItemGroup>
