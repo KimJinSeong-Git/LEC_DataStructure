@@ -34,7 +34,7 @@ void readFile(linkedList* L, char* fileRoot) {
 		insertLast(L, tempData);
 	}
 	fclose(fp);
-	printf("[ System ] 파일 불러오기 완료.\n\n");
+	printf("[System] 파일 불러오기 완료.\n\n");
 }
 
 linkedList* initList() {
