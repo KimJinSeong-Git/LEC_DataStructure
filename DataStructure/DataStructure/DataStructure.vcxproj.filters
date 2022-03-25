@@ -21,10 +21,18 @@
     <ClCompile Include="LinkedList.c">
       <Filter>소스 파일\HW1_LinkedList</Filter>
     </ClCompile>
+    <ClCompile Include="list.c">
+      <Filter>소스 파일\HW1_LinkedList</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="C:\Users\Byeo\Desktop\수업자료\데이타구조론\HW1\student.txt">
       <Filter>소스 파일\HW1_LinkedList</Filter>
     </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="list.h">
+      <Filter>소스 파일\HW1_LinkedList</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

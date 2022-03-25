@@ -140,9 +140,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="LinkedList.c" />
+    <ClCompile Include="list.c" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="C:\Users\Byeo\Desktop\수업자료\데이타구조론\HW1\student.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="list.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
