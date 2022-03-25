@@ -1,6 +1,5 @@
 #include "list.h"
 
-// ---------- Definition ----------
 void readFile(linkedList* L, char* fileRoot) {
 	FILE* fp;
 	listData tempData;
@@ -47,6 +46,10 @@ linkedList* initList() {
 }
 
 int getLength(linkedList* L) {
+	printf("[System] Get Length \n");
+	printf("- Length: %d", L->length);
+	printf("\n\n============================================\n\n");
+
 	return L->length;
 }
 
@@ -93,9 +96,8 @@ void insertLast(linkedList* L, listData item) {
 	newNode->link = NULL;
 
 	// 공백리스트이면 바로 삽입
-	if (L->head == NULL)
+	if (L->head == NULL) 
 		L->head = newNode;
-
 	// 아니라면 마지막 노드 탐색 후 삽입
 	else {
 		temp = L->head;					// 첫 번째 노드의 주소 입력
@@ -103,9 +105,11 @@ void insertLast(linkedList* L, listData item) {
 			temp = temp->link;			// 다음 노드의 주소 입력
 		temp->link = newNode;			// 마지막 노드 뒤에 새 노드 연결
 	}
+	L->length++;
 }
 
 int insert(linkedList* L, listNode* pre, listData item) {
+	printf("[System] Insert\n");
 	listNode* newNode;
 	newNode = (listNode*)malloc(sizeof(listNode));
 	newNode->data = item;
@@ -116,4 +120,5 @@ int insert(linkedList* L, listNode* pre, listData item) {
 	else if (pre == NULL) {
 
 	}
+	printf("\n\n============================================\n\n");
 }

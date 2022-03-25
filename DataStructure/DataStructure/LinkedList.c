@@ -10,7 +10,6 @@
 */
 #include "list.h"
 
-// ---------- Main ----------
 int main() {
 	linkedList* student = initList();
 
@@ -18,9 +17,9 @@ int main() {
 	char *fileRoot = "C:/Users/YONSEI-IT/Desktop/김진성_근로학생/github/LEC_DataStructure/resource/HW1/student.txt";
 	readFile(student, fileRoot);
 
-	// ---------- 터미널 입력 ----------
 	int power = 1;
 	while (power) {
+		// ---------- 터미널 입력 ----------
 		char terminalBuffer[100];
 		printf("$ ");
 		gets_s(terminalBuffer, sizeof(terminalBuffer));
@@ -40,7 +39,6 @@ int main() {
 
 		// ---------- Insert ----------
 		else if (strcmp(command, "insert") == 0) {
-			printf("[System] Insert\n");
 			int nbSearchID = atoi(strtok_s(NULL, " ", &cmdContext));		// 다음 인자 토큰화 진행
 			listNode* searchedNode = search(student, nbSearchID);
 
@@ -63,9 +61,9 @@ int main() {
 			printf("[System] Reverse\n");
 
 		// ---------- GetLength ----------
-		else if (strcmp(command, "getLength") == 0)
-			printf("[System] GetLength\n");
-
+		else if (strcmp(command, "getLength") == 0) {
+			getLength(student);
+		}
 		// ---------- Exit ----------
 		else if (strcmp(command, "exit") == 0) {
 			printf("[System] Exit Program\n");
