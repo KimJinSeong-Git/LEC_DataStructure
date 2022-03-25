@@ -30,7 +30,6 @@ int main() {
 		// ---------- Print ----------
 		if (strcmp(command, "print") == 0) {
 			printList(student);
-			printf("\n\n============================================\n\n");
 		}
 
 		// ---------- Search ----------
@@ -52,34 +51,29 @@ int main() {
 			strcpy_s(newItem.name, sizeof(newItem.name), newName);
 
 			insert(student, searchedNode, newItem);
-			printf("\n\n============================================\n\n");
 		}
 
 		// ---------- Delete ----------
 		else if (strcmp(command, "delete") == 0) {
-			printf("[System] Delete\n");
-			printf("\n\n============================================\n\n");
+			int nbDeleteID = atoi(strtok_s(NULL, " ", &cmdContext));
+			delete(student, nbDeleteID);
 		}
 		// ---------- Reverse ----------
 		else if (strcmp(command, "reverse") == 0) {
 			reverse(student);
-			printf("\n\n============================================\n\n");
 		}
 
 		// ---------- GetLength ----------
 		else if (strcmp(command, "getLength") == 0) {
 			getLength(student);
-			printf("\n\n============================================\n\n");
 		}
 		// ---------- Exit ----------
 		else if (strcmp(command, "exit") == 0) {
 			printf("[System] Exit Program\n");
 			power = 0;
-			printf("\n\n============================================\n\n");
 		}
 		else {
 			printf("[System] ERROR! Wrong Command. Please retype.\n");
-			printf("\n\n============================================\n\n");
 		}
 	}
 	return 0;

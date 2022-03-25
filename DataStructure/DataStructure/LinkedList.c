@@ -47,14 +47,14 @@ linkedList* initList() {
 
 int getLength(linkedList* L) {
 	printf("[System] Get Length \n");
-	printf("- Length: %d", L->length);
+	printf("- Length: %d\n\n", L->length);
 
 	return L->length;
 }
 
 void printList(linkedList* L) {
 	listNode* p;
-	printf("[ System ] Print List\n");
+	printf("[System] Print List\n");
 
 	p = L->head;
 	while (p != NULL) {
@@ -63,10 +63,11 @@ void printList(linkedList* L) {
 		if (p != NULL)
 			printf("\n");
 	}
+	printf("\n\n");
 }
 
 listNode* search(linkedList* L, int x) {
-	printf("[System] Search\n");
+	printf("[System] Search: %d\n", x);
 
 	listNode* searched;
 	searched = L->head;				// 첫 번째 항목의 주소
@@ -78,9 +79,9 @@ listNode* search(linkedList* L, int x) {
 	}
 
 	if (searched != NULL)
-		printf("- 학번이 %d인 학생의 이름: %s\n", x, searched->data.name);
+		printf("- Name: %s\n\n", searched->data.name);
 	else		// 마지막 링크( NULL )에 도달 즉, 조건에 맞는 노드가 없음
-		printf("- 학번이 %d인 학생이 없습니다.\n", x);
+		printf("- Fail. Not Exist.\n\n");
 
 	return searched;
 }
@@ -115,7 +116,7 @@ int insert(linkedList* L, listNode* pre, listData item) {
 	if (L->head == NULL)
 		L->head = newNode;
 	else if (pre == NULL) {
-		printf("[System] Insert Fali.");
+		printf("[System] Insert Fali.\n\n");
 		return 0;
 	}
 	else {
@@ -123,7 +124,7 @@ int insert(linkedList* L, listNode* pre, listData item) {
 		pre->link = newNode;
 	}
 	L->length++;
-	printf("[System] Insert Complete.");
+	printf("[System] Insert Complete.\n\n");
 	printList(L);
 	return 1;
 }
@@ -140,4 +141,26 @@ void reverse(linkedList* L) {
 		cur = next;
 	}
 	L->head = pre;
+}
+
+int delete(linkedList* L, int x) {
+	printf("[System] Delete\n");
+	listNode* toDelete = search(L, x);	// 삭제할 노드의 위치 탐색
+	
+	// 삭제할 노드가 있다면, 메모리 해제 진행
+	if (toDelete != NULL) {
+		listNode* pre = L->head;
+		while (pre->link != toDelete) {
+			pre = pre->link;	// 이전 노드 탐색
+		}
+		pre->link = toDelete->link;							// 이전 노드와 다음 노드 링크
+		free(toDelete);										// 메모리 해제
+		printf("[System] Delete Complete.\n\n");
+		printList(L);
+		return 1;
+	}
+	else
+		printf("[System] Delete Failed.\n\n");
+
+	return 0;
 }
