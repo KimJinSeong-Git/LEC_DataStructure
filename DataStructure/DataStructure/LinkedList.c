@@ -67,7 +67,7 @@ void printList(linkedList* L) {
 }
 
 listNode* search(linkedList* L, int x) {
-	printf("[System] Search: %d\n", x);
+	printf("[System] Search Start: %d\n", x);
 
 	listNode* searched;
 	searched = L->head;				// 첫 번째 항목의 주소
@@ -130,7 +130,7 @@ int insert(linkedList* L, listNode* pre, listData item) {
 }
 
 void reverse(linkedList* L) {
-	printf("[System] Reverse\n");
+	printf("[System] Reverse Start\n");
 	listNode *cur, *pre, *next;
 	cur = L->head;
 	pre = NULL;
@@ -141,6 +141,8 @@ void reverse(linkedList* L) {
 		cur = next;
 	}
 	L->head = pre;
+	printf("[System] Reverse Complete.\n");
+	printList(L);
 }
 
 int delete(linkedList* L, int x) {
