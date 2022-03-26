@@ -19,11 +19,11 @@ void readFile(linkedList* L, char* fileRoot) {
 		int cntWord = 1;
 		while (word != NULL) {
 			if (cntWord == 1) {
-				strcpy_s(tempData.name, sizeof(word), word);
+				strcpy_s(tempData.name, sizeof(word), word);	// 해당 라인 이름을 구조체 내에 저장
 				cntWord++;
 			}
 			else if (cntWord == 2) {
-				tempData.id = atoi(word);
+				tempData.id = atoi(word);						// 해당 라인 ID를 정수 형태로 구조체에 저장
 				cntWord++;
 			}
 			else

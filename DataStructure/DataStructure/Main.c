@@ -16,7 +16,7 @@ int main() {
 	linkedList* student = initList();
 
 	// ---------- 파일 읽어오기 ----------
-	char *fileRoot = "C:/Users/YONSEI-IT/Desktop/김진성_근로학생/github/LEC_DataStructure/resource/HW1/student.txt";
+	char *fileRoot = "F:/github/LEC_DataStructure/resource/HW1/student.txt";
 	readFile(student, fileRoot);
 
 	int power = 1;
