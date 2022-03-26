@@ -14,7 +14,7 @@
 
 int main() {
 	linkedList* student = initList();
-
+	printf("[ 자료구조 HW1 - 2019253089_김진성 ]\n\n");
 	// ---------- 파일 읽어오기 ----------
 	char *fileRoot = "F:/github/LEC_DataStructure/resource/HW1/student.txt";
 	readFile(student, fileRoot);
