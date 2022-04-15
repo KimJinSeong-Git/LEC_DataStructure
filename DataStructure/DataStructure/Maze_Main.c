@@ -7,5 +7,6 @@ int mark[m + 2][p + 2];
 int main() {
 	char* fileRoot = "./maze_14_2.txt";
 	loadMaze(&maze, fileRoot);
+	printMaze(&maze);
 	return 0;
 }
