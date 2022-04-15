@@ -25,6 +25,4 @@ typedef struct ListNode {
 	listPointer link;
 } listNode;
 
-
-
-void loadMaze(int* maze, char* fileRoot);
+void loadMaze(int maze[][p], char* fileRoot);

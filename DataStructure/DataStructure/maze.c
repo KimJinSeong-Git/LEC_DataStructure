@@ -1,6 +1,6 @@
 #include "maze.h"
 
-void loadMaze(int* maze, char* fileRoot) {
+void loadMaze(int maze[][p], char* fileRoot) {
 	FILE* fp;
 	char fileBuffer[30];
 	char* context = NULL;
@@ -11,11 +11,12 @@ void loadMaze(int* maze, char* fileRoot) {
 	while (!feof(fp)) {
 		fgets(fileBuffer, sizeof(fileBuffer), fp);
 		char* cell = strtok_s(fileBuffer, " ", &context);
-
+		col = 0;
 		while (cell != NULL) {
-			printf("%s ", cell);
+			maze[row][col] = atoi(cell);
 			cell = strtok_s(NULL, " ", &context);
+			col++;
 		}
-		printf("\n");
+		row++;
 	}
 }
