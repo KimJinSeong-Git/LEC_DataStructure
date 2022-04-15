@@ -8,6 +8,11 @@
 #define Max_dir 8
 #define Timestep 1000
 
+#define OPEN 0
+#define CLOSED 1
+#define START 2
+#define DST 3
+
 typedef struct Aoff {
 	short int vert;
 	short int horiz;

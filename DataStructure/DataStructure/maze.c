@@ -1,6 +1,6 @@
 #include "maze.h"
 
-void loadMaze(int maze[][p+2], char* fileRoot) {
+void loadMaze(int maze[][p + 2], char* fileRoot) {
 	FILE* fp;
 	char fileBuffer[30];
 	char* context = NULL;
@@ -15,20 +15,35 @@ void loadMaze(int maze[][p+2], char* fileRoot) {
 		while (cell != NULL) {
 			maze[row][col] = atoi(cell);
 			cell = strtok_s(NULL, " ", &context);
-			
+
 			col++;
 		}
 		row++;
 	}
+
+	maze[1][1] = START;
+	maze[m][p] = DST;
 }
 
 void printMaze(int maze[][p+2]) {
+	int kind;
 	for (int row = 0; row < m+2; row++) {
 		for (int col = 0; col < p+2; col++) {
-			if (maze[row][col] == 1)
+			kind = maze[row][col];
+			switch (kind) {
+			case OPEN:
+				printf("  ");
+				break;
+			case CLOSED:
 				printf("бс");
-			else if (maze[row][col] == 0)
-				printf("бр");
+				break;
+			case START:
+				printf("и▀");
+				break;
+			case DST:
+				printf("и╨");
+				break;
+			}
 		}
 		printf("\n");
 	}
