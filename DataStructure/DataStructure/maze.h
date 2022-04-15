@@ -25,6 +25,6 @@ typedef struct ListNode {
 	listPointer link;
 } listNode;
 
-offsets move[Max_dir] = { {-1, 0}, {-1, 1}, {0, 1}, {1, 1}, {1, 0}, {1, -1}, {0, -1}, {-1, -1} };
-int maze[m + 2][p + 2];
-int mark[m + 2][p + 2];
+
+
+void loadMaze(int* maze, char* fileRoot);

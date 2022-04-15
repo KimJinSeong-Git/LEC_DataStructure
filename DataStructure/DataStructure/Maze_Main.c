@@ -1,6 +1,11 @@
 #include "maze.h"
 
+offsets move[Max_dir] = { {-1, 0}, {-1, 1}, {0, 1}, {1, 1}, {1, 0}, {1, -1}, {0, -1}, {-1, -1} };
+int maze[m + 2][p + 2];
+int mark[m + 2][p + 2];
+
 int main() {
-	printf("Basic code");
+	char* fileRoot = "./maze_14_2.txt";
+	loadMaze(&maze, fileRoot);
 	return 0;
 }
