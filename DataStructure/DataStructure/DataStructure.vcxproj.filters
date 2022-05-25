@@ -24,7 +24,7 @@
     <ClCompile Include="linkedList.c">
       <Filter>소스 파일\HW1_LinkedList</Filter>
     </ClCompile>
-    <ClCompile Include="BST.c">
+    <ClCompile Include="btree.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
