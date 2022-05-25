@@ -16,9 +16,6 @@
     <Filter Include="소스 파일\HW1_LinkedList">
       <UniqueIdentifier>{a41f30b1-a02b-4c38-9195-e55b51ff34a7}</UniqueIdentifier>
     </Filter>
-    <Filter Include="소스 파일\HW2_Stack">
-      <UniqueIdentifier>{111d6871-29ff-4a56-a667-864a48f6562b}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.c">
@@ -27,11 +24,8 @@
     <ClCompile Include="linkedList.c">
       <Filter>소스 파일\HW1_LinkedList</Filter>
     </ClCompile>
-    <ClCompile Include="Maze_Main.c">
-      <Filter>소스 파일\HW2_Stack</Filter>
-    </ClCompile>
-    <ClCompile Include="maze.c">
-      <Filter>소스 파일\HW2_Stack</Filter>
+    <ClCompile Include="BST.c">
+      <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -42,9 +36,6 @@
   <ItemGroup>
     <ClInclude Include="linkedList.h">
       <Filter>소스 파일\HW1_LinkedList</Filter>
-    </ClInclude>
-    <ClInclude Include="maze.h">
-      <Filter>소스 파일\HW2_Stack</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

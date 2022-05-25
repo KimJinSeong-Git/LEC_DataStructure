@@ -32,3 +32,8 @@ typedef struct ListNode {
 
 void loadMaze(int maze[][p+2], char* fileRoot);
 void printMaze(int maze[][p+2]);
+void gotoxy(int x, int y);
+void push(listPointer * top, ty_element item);
+ty_element pop(listPointer * top);
+void reverse(listPointer * ptr_top);
+int path(int sy, int sx, int dy, int dx);
