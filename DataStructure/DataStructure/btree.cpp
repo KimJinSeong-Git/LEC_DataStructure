@@ -11,9 +11,9 @@ typedef struct {
 	itemStock stock;
 } item;
 
-typedef struct BST {
-	treeNode* head;
-} BST;
+typedef struct bTree {
+	struct treeNode* head;
+}bTree;
 
 typedef struct treeNode {
 	item key;
@@ -21,24 +21,32 @@ typedef struct treeNode {
 	struct treeNode* right;
 } treeNode;
 
+bTree* initTree();
 void displayBST(treeNode* bt);
-void searchBST(BST* bt, item data);
-void insertBST(BST* bt, item data);
+void searchBST(treeNode* bt, item data);
+void insertBST(bTree* bt, item data);
 
 int main() {
-	BST* p = NULL;
-	item t;
+	bTree* bt = initTree();
+	bt->head = NULL;
+	item data;
 
-	strcpy(t.itemCode, "12345");
-	t.stock = 10;
-	insertBST(p, t);
+	strcpy(data.itemCode, "123455"); data.stock = 10; insertBST(bt, data);
 
+	printf("[system] 전체 재고 출력\n");
+	displayBST(bt->head);
 	return 0;
+}
+
+bTree* initTree() {
+	bTree* L;									
+	L = (bTree*)malloc(sizeof(bTree));	
+	L->head = NULL;									
+	return L;
 }
 
 void displayBST(treeNode* bt) {
 	treeNode* p = bt;
-	printf("[system] 전체 재고 출력\n");
 	if (p != NULL) {
 		displayBST(p->left);
 		printf("- 관리번호: %s, 재고: %d\n", p->key.itemCode, p->key.stock);
@@ -46,7 +54,7 @@ void displayBST(treeNode* bt) {
 	}
 }
 
-void insertBST(BST* bt, item data) {
+void insertBST(bTree* bt, item data) {
 	treeNode* p = bt->head;
 	treeNode* parent = NULL;
 
